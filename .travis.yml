@@ -10,3 +10,13 @@ script: true
   - nosetests --with-coverage --coverage report
 script:
   - python Calculator.py
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: d7352030-edcb-4382-a237-06a336897bd5
+  app: gittest2020
+  on:
+    repo: timsyu/GitExample
+  run:
+    "web: gunicorn app_run:app"
